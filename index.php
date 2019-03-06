@@ -1,6 +1,18 @@
 <?php
+
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+	
 	session_start();
 	$pagename="Home";
+
+	include("db/config.php");
+	include("db/db.php");
+	include("db/api.php");
+
+	$songs = getNewSongs(6);
+	$categories = getCategories(6);
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,46 +32,38 @@
 				</form>
 			</div>
 			<div class="box-left">
-				<h3 class="heading">Trending Songs</h3>
-				<div class="song">
-					<i class="fa fa-play-circle-o"></i> Closer - by the chainsmoker
-				</div>
-				<div class="song">
-					<i class="fa fa-play-circle-o"></i> Cold water - by Major Laser
-				</div>
-				<div class="song">
-					<i class="fa fa-play-circle-o"></i> Cheap Thrills - by Sia
-				</div>
-				<div class="song">
-					<i class="fa fa-play-circle-o"></i> Ain't my fault - by Zara Larson
-				</div>
-				<div class="song">
-					<i class="fa fa-play-circle-o"></i> Don't Let Me Down - by The Chainsmokers
-				</div>
-				<div class="song">
-					<i class="fa fa-play-circle-o"></i> One Dance - by Drake
-				</div>
+				<h3 class="heading">Song Category</h3>
+				<?php
+					foreach($categories as $categorie){
+				?>
+					<div class="song">
+						<a href="#" class="song-link">
+							<i class="fa fa-bookmark"></i> <?php echo ucfirst($categorie['title']);?>
+						</a>
+					</div>
+				<?php
+					}
+				?>
 			</div>
 			<div class="box-right">
 				<h3 class="heading">New Releases</h3>
-				<div class="song">
-					<i class="fa fa-play-circle-o"></i> Thank u, Next - by Ariana Grande
-				</div>
-				<div class="song">
-					<i class="fa fa-play-circle-o"></i> Look Away - by Rival Sons
-				</div>
-				<div class="song">
-					<i class="fa fa-play-circle-o"></i> No Place - by Backstreet Boys
-				</div>
-				<div class="song">
-					<i class="fa fa-play-circle-o"></i> Never Let You Go - by Slushii
-				</div>
-				<div class="song">
-					<i class="fa fa-play-circle-o"></i> Hurt - by Oliver Tree
-				</div>
-				<div class="song">
-					<i class="fa fa-play-circle-o"></i> Solo - by Clean Bendit
-				</div>
+				<?php
+					if(empty($songs)){
+				?>
+					<i>There is no song in new release.	</i>
+				<?php
+					}
+					else 
+						foreach($songs as $song){
+				?>
+					<div class="song">
+						<a href="#" class="song-link">
+							<i class="fa fa-play-circle-o"></i> <?php echo ucfirst($song['song_name']);?>
+						</a>
+					</div>
+				<?php
+					}
+				?>
 			</div>
 			<div class="clear"></div>
 		</div>

@@ -17,6 +17,9 @@
 					</div>
 			 	</div>
 			</li>
+			<li class="right">
+				<a href="#" class="link">My Playlist</a>
+			</li>
 			<?php
 				} else {
 			?>

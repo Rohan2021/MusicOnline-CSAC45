@@ -2,7 +2,7 @@ body, html {
 	height: 100%;
 	margin: 0;
 	/* The image used */
-	/*background-image: url("../img/bg.jpg");*/
+	background-image: url("../img/bg.jpg");
 
 	/* Center and scale the image nicely */
 	background-position: center;
@@ -300,4 +300,10 @@ h3{
 	border:1px solid white;
 	border-radius: 10px;
 	width: 52%;
+}
+
+.song-link{
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
 }
