@@ -21,6 +21,9 @@
 				<h3>Category</h3>
 				<a href="addcategory.php" class="btnadd" title="Add Category"><i class="fa fa-plus"></i></a>
 				<a href="editcategory.php" class="btnedit" title="Edit Category"><i class="fa fa-pencil-square-o"></i></a>
+				<a href="categorystatus.php" class="btnstatus" title="Category Status">
+					<i class="fa fa-toggle-on"></i>
+				</a>
 			</div>
 			<div class="boxdiv">
 				<h3>Song</h3>

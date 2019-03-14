@@ -66,4 +66,10 @@
 		return true;
 	}
 
+	function updateCategoryStatus($id, $status){
+		global $db;
+		$result = $db->execute("update category set status = '".$status."' where id = '".$id."'");
+		return true;
+	}
+
 ?>

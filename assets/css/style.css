@@ -271,6 +271,14 @@ h3{
 	margin-left: 5px;
 }
 
+.btnstatus{
+	border:1px solid #CC3A67!important;
+	color: #CC3A67!important;
+	text-decoration: none;
+	padding: 5px 10px;
+	margin-left: 5px;
+}
+
 .addcategory .inner-wrapper form .input{
 	margin-top: 10px;
 	margin-bottom: 15px;
