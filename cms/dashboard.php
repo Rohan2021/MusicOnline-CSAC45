@@ -29,6 +29,9 @@
 				<h3>Song</h3>
 				<a href="addsong.php" class="btnadd" title="Add Song"><i class="fa fa-plus"></i></a>
 				<a href="editsong.php" class="btnedit" title="Edit Song"><i class="fa fa-pencil-square-o"></i></a>
+				<a href="songstatus.php" class="btnstatus" title="Song Status">
+					<i class="fa fa-toggle-on"></i>
+				</a>
 			</div>
 			<div class="boxdiv">
 				<h3>Album</h3>

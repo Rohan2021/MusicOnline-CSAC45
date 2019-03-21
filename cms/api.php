@@ -72,4 +72,10 @@
 		return true;
 	}
 
+	function updateSongStatus($id, $status){
+		global $db;
+		$result = $db->execute("update songs set status = '".$status."' where song_id = '".$id."'");
+		return true;
+	}
+
 ?>
