@@ -40,6 +40,7 @@
 			}
 		}
 	}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,21 +51,25 @@
 <body>
 	<?php include('commannav.php'); ?>
 
-	<div class="login-container">
-		<div class="inner-wrapper" style="background-color: transparent;box-shadow: none;">
-			<form class="box" action="" method="POST" target="_self">
-				<h3>Login to VMusic</h3>
-				<?php
-					if(isset($loginerr)){
-				?>
-					<small style="color:#D30E0E"><?php echo $loginerr;?></small>
-				<?php
-					}
-				?>
-				<input type="text" name="username" id="username" placeholder="Email" autocomplete="off" required="">
-				<input type="password" name="pass" id="pass" placeholder="Password" autocomplete="off" required="">
-				<input type="submit" id="submit" name="login">
-			</form>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-5 col-md-6 col-12 m-auto">
+				<div class="inner-wrapper" style="background-color: transparent;box-shadow: none;">
+					<form class="box" action="" method="POST" target="_self">
+						<h3>Login to VMusic</h3>
+						<?php
+							if(isset($loginerr)){
+						?>
+							<small style="color:#D30E0E"><?php echo $loginerr;?></small>
+						<?php
+							}
+						?>
+						<input type="text" name="username" id="username" placeholder="Email" autocomplete="off" required="">
+						<input type="password" name="pass" id="pass" placeholder="Password" autocomplete="off" required="">
+						<input type="submit" id="submit" name="login">
+					</form>
+				</div>
+			</div>
 		</div>
 	</div>
 

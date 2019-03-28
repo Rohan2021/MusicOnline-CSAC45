@@ -19,7 +19,7 @@ if(!isset($pagename)){
 				if(isset($_SESSION['adminid'])){
 			?>
 			 <li class="right">
-			 	<div class="dropdown">
+			 	<div class="dropdown-copy">
 			 		<a href="#" class="dropbtn">Hi! Admin <i class="fa fa-angle-down"></i></a>
 					<div class="dropdown-content" style="width:100%">
 						<a href="logout.php" class="dropdown-link"><i class="fa fa-sign-out"></i>Logout</a>

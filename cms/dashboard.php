@@ -35,28 +35,28 @@
 			</div>
 			<div class="boxdiv">
 				<h3>Album</h3>
-				<a class="btnadd" title="Add Album"><i class="fa fa-plus"></i></a>
-				<a class="btnedit" title="Edit Album"><i class="fa fa-pencil-square-o"></i></a>
+				<a href="addalbum.php" class="btnadd" title="Add Album"><i class="fa fa-plus"></i></a>
+				<a href="editalbum.php" class="btnedit" title="Edit Album"><i class="fa fa-pencil-square-o"></i></a>
 			</div>
 			<div class="boxdiv">
 				<h3>Artist</h3>
-				<a class="btnadd" title="Add Artist"><i class="fa fa-plus"></i></a>
-				<a class="btnedit" title="Edit Artist"><i class="fa fa-pencil-square-o"></i></a>
+				<a href="addartist.php" class="btnadd" title="Add Artist"><i class="fa fa-plus"></i></a>
+				<a href="editartist.php" class="btnedit" title="Edit Artist"><i class="fa fa-pencil-square-o"></i></a>
 			</div>
 			<div class="boxdiv">
 				<h3>Song In Category</h3>
-				<a class="btnadd" title="Add Song in Category"><i class="fa fa-plus"></i></a>
-				<a class="btnedit" title="Edit Song in Category"><i class="fa fa-pencil-square-o"></i></a>
+				<a href="songincategory.php" class="btnadd" title="Add Song in Category"><i class="fa fa-plus"></i></a>
+				<a href="editsongincategory.php" class="btnedit" title="Edit Song in Category"><i class="fa fa-pencil-square-o"></i></a>
 			</div>
 			<div class="boxdiv">
 				<h3>Song In Album</h3>
-				<a class="btnadd" title="Add Song in Album"><i class="fa fa-plus"></i></a>
-				<a class="btnedit" title="Edit Song in Album"><i class="fa fa-pencil-square-o"></i></a>
+				<a href="songinalbum.php" class="btnadd" title="Add Song in Album"><i class="fa fa-plus"></i></a>
+				<a href="editsonginalbum.php" class="btnedit" title="Edit Song in Album"><i class="fa fa-pencil-square-o"></i></a>
 			</div>
 			<div class="boxdiv">
 				<h3>Song By Artists</h3>
-				<a class="btnadd" title="Add Song By Artist"><i class="fa fa-plus"></i></a>
-				<a class="btnedit" title="Edit Song By Artist"><i class="fa fa-pencil-square-o"></i></a>
+				<a href="songbyartist.php" class="btnadd" title="Add Song By Artist"><i class="fa fa-plus"></i></a>
+				<a href="editsongbyartist.php" class="btnedit" title="Edit Song By Artist"><i class="fa fa-pencil-square-o"></i></a>
 			</div>
 			<div class="clear"></div>
 		</div>

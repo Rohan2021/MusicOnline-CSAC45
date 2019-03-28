@@ -1,8 +1,8 @@
 <?php
 
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
+	// ini_set('display_errors', 1);
+	// ini_set('display_startup_errors', 1);
+	// error_reporting(E_ALL);
 	
 	session_start();
 	$pagename="Home";
@@ -23,29 +23,38 @@
 <body>
 	<?php include('commannav.php'); ?>
 
-	<div class="home-container">
-		<div class="inner-wrapper">
-			<div class="box-top">
+	<div class="container">
+		<div class="row box-bg" style="margin: 0px;">
+			<div class="col-12 mb-5">
 				<form class="form">
 					<input type="text" name="searchbox" class="input left-radius" placeholder="Search Song ...">
 					<button class="btn-theme right-radius"><i class="fa fa-search"></i></button>
 				</form>
 			</div>
-			<div class="box-left">
+			<div class="col-lg-6 mb-4">
 				<h3 class="heading">Song Category</h3>
 				<?php
+					$count = 0;
 					foreach($categories as $categorie){
+						if($categorie['status']==1){
+							$count++;
 				?>
-					<div class="song">
-						<a href="#" class="song-link">
-							<i class="fa fa-bookmark"></i> <?php echo ucfirst($categorie['title']);?>
-						</a>
-					</div>
+							<div class="song">
+								<a href="#" class="song-link">
+									<i class="fa fa-bookmark"></i> <?php echo ucfirst($categorie['title']);?>
+								</a>
+							</div>
+				<?php
+						}
+					}
+					if($count == 0){
+				?>
+						<div class="alert alert-danger">There is no category available.</div>
 				<?php
 					}
 				?>
 			</div>
-			<div class="box-right">
+			<div class="col-lg-6 mb-4">
 				<h3 class="heading">New Releases</h3>
 				<?php
 					if(empty($songs)){

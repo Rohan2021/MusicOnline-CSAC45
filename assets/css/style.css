@@ -101,11 +101,17 @@ a.link-2:hover {
 	height: 350px
 }
 .inner-wrapper{
-	width: 95%;
+	width: 100%;
 	background-color: #51d2f3e8;
 	padding:2.5%;
 	box-shadow: 5px 5px 15px 0px #266e87;
 	height: 400px
+}
+
+.box-bg{
+	background-color: #51d2f3e8;
+	padding:55px 20px;
+	box-shadow: 5px 5px 15px 0px #266e87;
 }
 
 .form .input{
@@ -159,12 +165,8 @@ a.link-2:hover {
 }
 
 .box {
-  width: 300px;
+  width: 100%;
   padding: 40px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
   background: #191919e8;
   border: 5px solid #51d2f3e8;
   border-radius: 25px;
@@ -207,7 +209,7 @@ h3{
   background: #2ecc71;
 }
 
-.dropdown{
+.dropdown-copy{
 	position: relative;
 }
 
@@ -232,11 +234,11 @@ h3{
   background-color: #DADADA
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown-copy:hover .dropdown-content {
   display: block;
 }
 
-.dropdown:hover .dropbtn {
+.dropdown-copy:hover .dropbtn {
   background-color: #266e87;
   border-radius: 15px 15px 0px 0px;
 }
@@ -314,4 +316,37 @@ h3{
 	color: white;
 	text-decoration: none;
 	cursor: pointer;
+}
+
+#table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#table td, #table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+
+#table tr:hover {background-color: #ddd;}
+
+#table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.navbar .navbar-nav .nav-item .nav-link{
+	letter-spacing: 2px !important;
+	padding: 5px 25px !important;
+}
+
+.navbar .navbar-nav .nav-item .nav-link:hover{
+	background-color: #266e87;
+	border-radius: 15px;
+	color: white;
 }

@@ -23,6 +23,6 @@ if ($config['env'] == 'dev') {
     $config['db_host'] = 'localhost';
     $config['db_name'] = 'vmusic';
     $config['db_user'] = 'root';
-    $config['db_pass'] = 'root';
+    $config['db_pass'] = '123456789';
 }
 ?>
