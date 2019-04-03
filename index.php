@@ -26,9 +26,9 @@
 	<div class="container">
 		<div class="row box-bg" style="margin: 0px;">
 			<div class="col-12 mb-5">
-				<form class="form">
+				<form class="form" action="song.php" method="get">
 					<input type="text" name="searchbox" class="input left-radius" placeholder="Search Song ...">
-					<button class="btn-theme right-radius"><i class="fa fa-search"></i></button>
+					<button class="btn-theme right-radius" type="submit"><i class="fa fa-search"></i></button>
 				</form>
 			</div>
 			<div class="col-lg-6 mb-4">
@@ -39,11 +39,11 @@
 						if($categorie['status']==1){
 							$count++;
 				?>
-							<div class="song">
-								<a href="#" class="song-link">
-									<i class="fa fa-bookmark"></i> <?php echo ucfirst($categorie['title']);?>
-								</a>
+						<a href="song.php?genre=<?php echo $categorie['id'];?>" class="song-link">
+							<div class="song rounded shadow">
+								<i class="fa fa-bookmark"></i> <?php echo ucfirst($categorie['title']);?>
 							</div>
+						</a>
 				<?php
 						}
 					}
@@ -65,11 +65,11 @@
 					else 
 						foreach($songs as $song){
 				?>
-					<div class="song">
-						<a href="#" class="song-link">
+					<a href="songs/<?php echo $song['song_location'];?>" target="_blank" class="song-link">
+						<div class="song rounded shadow">
 							<i class="fa fa-play-circle-o"></i> <?php echo ucfirst($song['song_name']);?>
-						</a>
-					</div>
+						</div>
+					</a>
 				<?php
 					}
 				?>

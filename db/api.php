@@ -78,4 +78,47 @@
 		global $db;
 		return $db->query("SELECT songs.song_name,songs.song_location,songs.status,album_song.song_id FROM songs,album_song where songs.song_id = album_song.song_id and album_song.album_id = ".$albumId."");
 	}
+
+	function getSongByArtist($artistId){
+		global $db;
+		return $db->query("SELECT songs.song_name,songs.song_location,songs.status,artist_song.song_id FROM songs,artist_song where songs.song_id = artist_song.song_id and artist_song.artist_id = ".$artistId."");
+	}
+
+	function getSongByGenre($genreId){
+		global $db;
+		return $db->query("SELECT songs.song_name,songs.song_location,songs.status,category_song.song_id FROM songs,category_song where songs.song_id = category_song.song_id and category_song.cat_id = ".$genreId."");
+	}
+
+	function getSongByPlaylist($playlistId){
+		global $db;
+		return $db->query("SELECT songs.song_name,songs.song_location,songs.status,playlist_songs.ps_id FROM songs,playlist_songs where songs.song_id = playlist_songs.song_id and playlist_songs.playlist_id = ".$playlistId."");
+	}
+
+	function addSongToPlaylist($playlistId,$songId){
+		global $db;
+		$res = $db->query("SELECT * from playlist_songs where playlist_id = '".$playlistId."' and song_id = '".$songId."' ");
+
+		if(sizeof($res) > 0){
+			return false;
+		}
+
+		$db->execute("INSERT INTO playlist_songs(playlist_id,song_id) values(".$playlistId.",".$songId.")");
+		return true;
+	}
+
+	function deleteSongFromPlaylist($psid){
+		global $db;
+		$db->execute("DELETE FROM playlist_songs where ps_id = ".$psid."");
+	}
+
+	function searchSong($keyword){
+		global $db;
+		return $db->query("SELECT song_name,song_location,status,song_id FROM songs where song_name LIKE '%".$keyword."%'");
+	}
+
+	function deletePlaylist($pid){
+		global $db;
+		$db->execute("DELETE FROM playlist where playlist_id = ".$pid."");
+	}
 ?>
+

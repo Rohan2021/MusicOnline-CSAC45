@@ -151,10 +151,15 @@ a.link-2:hover {
 
 .song{
 	width: 90%;
-	padding: 1% 2.5%;
-	margin-bottom: 5px; 
+	padding: 10px 15px;
+	margin-bottom: 10px; 
 	background-color: #203A43;
 	color: white;
+	transition: 0.5s;
+}
+
+.song:hover{
+	background-color:#2f4e58;
 }
 
 .heading{
@@ -314,8 +319,15 @@ h3{
 
 .song-link{
 	color: white;
-	text-decoration: none;
+	text-decoration: none !important;
 	cursor: pointer;
+	transition: 0.2s;
+}
+.song-link:hover{
+	color: white;
+	text-decoration: none !important;
+	cursor: pointer;
+	letter-spacing: 2px;
 }
 
 #table {
@@ -349,4 +361,18 @@ h3{
 	background-color: #266e87;
 	border-radius: 15px;
 	color: white;
+}
+
+.overlay{
+	position: relative;
+}
+
+.btn-delete{
+	position: absolute;
+	top: 0px;
+	right: 15px;
+}
+
+.rounded-cstm{
+	border-radius: 0px 4.5px 0px 50% !important;
 }

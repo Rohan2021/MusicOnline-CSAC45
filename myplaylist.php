@@ -12,8 +12,14 @@
 	include("db/db.php");
 	include("db/api.php");
 
-	$playlists = getPlaylist($_SESSION['uid']);
+	if(isset($_POST['delete'])){
+		$playlist_id = $_POST['pid'];
+		deletePlaylist($playlist_id);
+		echo "<script>alert('Playlist Removed');</script>";
+		header("Refresh:0");
+	}
 
+	$playlists = getPlaylist($_SESSION['uid']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,7 +48,11 @@
 							foreach ($playlists as $playlist) {
 					?>
 							<div class="col-lg-4 mb-2">
-								<a class="btn btn-light btn-block py-3" href="song.php?playlist=<?php echo $playlist['playlist_id'];?>"><?php echo ucwords($playlist['playlist_name']);?></a>
+								<a class="btn btn-light btn-block py-3 overlay" href="song.php?playlist=<?php echo $playlist['playlist_id'];?>"><?php echo ucwords($playlist['playlist_name']);?></a>
+								<form class="btn-delete" action="" method="post">
+									<input type="text" name="pid" value="<?php echo $playlist['playlist_id'];?>" hidden="">
+									<button class="btn btn-danger btn-sm rounded-cstm" name="delete" type="submit"><i class="fa fa-times"></i></button>
+								</form>
 							</div>
 					<?php
 							}

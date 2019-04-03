@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 25, 2019 at 12:50 PM
+-- Generation Time: Mar 31, 2019 at 02:22 PM
 -- Server version: 5.7.25-0ubuntu0.18.04.2
--- PHP Version: 7.0.33-1+ubuntu18.04.1+deb.sury.org+1
+-- PHP Version: 7.2.10-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -57,8 +57,8 @@ CREATE TABLE `album` (
 --
 
 INSERT INTO `album` (`album_id`, `album_name`) VALUES
-(4, 'jazz'),
-(5, 'pop');
+(4, 'slaves of the shadow realm'),
+(5, 'moral instruction');
 
 -- --------------------------------------------------------
 
@@ -71,6 +71,15 @@ CREATE TABLE `album_song` (
   `album_id` int(11) NOT NULL,
   `song_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `album_song`
+--
+
+INSERT INTO `album_song` (`id`, `album_id`, `song_id`) VALUES
+(2, 4, 5),
+(3, 5, 4),
+(4, 4, 4);
 
 -- --------------------------------------------------------
 
@@ -99,7 +108,7 @@ INSERT INTO `artists` (`artist_id`, `artist_name`) VALUES
 (13, 'sia'),
 (14, 'zara larson'),
 (15, 'drake'),
-(16, 'unknown artist');
+(16, 'legion of the damned');
 
 -- --------------------------------------------------------
 
@@ -112,6 +121,13 @@ CREATE TABLE `artist_song` (
   `artist_id` int(11) NOT NULL,
   `song_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `artist_song`
+--
+
+INSERT INTO `artist_song` (`id`, `artist_id`, `song_id`) VALUES
+(1, 16, 5);
 
 -- --------------------------------------------------------
 
@@ -131,8 +147,8 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `title`, `status`, `created_at`) VALUES
-(1, 'jazz', 1, '2019-03-25 02:58:06'),
-(2, 'pop', 1, '2019-03-25 03:38:06');
+(1, 'jazz', 1, '2019-03-27 18:28:49'),
+(2, 'pop', 1, '2019-03-31 03:33:41');
 
 -- --------------------------------------------------------
 
@@ -151,9 +167,7 @@ CREATE TABLE `category_song` (
 --
 
 INSERT INTO `category_song` (`id`, `cat_id`, `song_id`) VALUES
-(1, 1, 4),
-(2, 1, 5),
-(3, 2, 5);
+(9, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -167,6 +181,13 @@ CREATE TABLE `playlist` (
   `playlist_name` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `playlist`
+--
+
+INSERT INTO `playlist` (`playlist_id`, `user_id`, `playlist_name`) VALUES
+(3, 2, 'moodfresh');
+
 -- --------------------------------------------------------
 
 --
@@ -178,28 +199,6 @@ CREATE TABLE `playlist_songs` (
   `playlist_id` int(11) NOT NULL,
   `song_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `role`
---
-
-CREATE TABLE `role` (
-  `role_id` int(11) NOT NULL,
-  `role_name` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `role`
---
-
-INSERT INTO `role` (`role_id`, `role_name`) VALUES
-(1, 'MANAGE_ALBUM'),
-(2, 'MANAGE_ARTIST'),
-(3, 'MANAGE_SONG'),
-(4, 'MANAGE_ADMIN'),
-(5, 'MANAGE_ROLES');
 
 -- --------------------------------------------------------
 
@@ -221,8 +220,8 @@ CREATE TABLE `songs` (
 --
 
 INSERT INTO `songs` (`song_id`, `song_name`, `song_location`, `release_date`, `status`, `created_at`) VALUES
-(4, 'closer look', '1550235614.mp3', '2019-03-14', 0, '2019-03-21 15:37:37'),
-(5, 'legion of the damned', '1550685611.mp3', '2019-01-10', 1, '2019-03-21 15:23:05');
+(4, 'closer look', '1550235614.mp3', '2019-03-14', 1, '2019-03-28 13:28:25'),
+(5, 'napalm', '1550685611.mp3', '2019-01-04', 1, '2019-03-27 07:34:20');
 
 -- --------------------------------------------------------
 
@@ -245,7 +244,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `email_id`, `password`, `phone_number`, `created_date`) VALUES
-(1, 'user', 'test', 'testuser@gmail.com', '202cb962ac59075b964b07152d234b70', '9876543210', '2019-02-07 16:59:13');
+(1, 'alok', 'upadhyay', 'alok@gmail.com', 'bad220c335d0c1f53548f6acdb17e265', '9877079796', '2019-03-27 18:30:43'),
+(2, 'test', 't.', 'test@gmail.com', '098f6bcd4621d373cade4e832627b4f6', '9877079796', '2019-03-27 18:36:08');
 
 --
 -- Indexes for dumped tables
@@ -315,12 +315,6 @@ ALTER TABLE `playlist_songs`
   ADD KEY `song_id` (`song_id`);
 
 --
--- Indexes for table `role`
---
-ALTER TABLE `role`
-  ADD PRIMARY KEY (`role_id`);
-
---
 -- Indexes for table `songs`
 --
 ALTER TABLE `songs`
@@ -350,7 +344,7 @@ ALTER TABLE `album`
 -- AUTO_INCREMENT for table `album_song`
 --
 ALTER TABLE `album_song`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `artists`
 --
@@ -360,7 +354,7 @@ ALTER TABLE `artists`
 -- AUTO_INCREMENT for table `artist_song`
 --
 ALTER TABLE `artist_song`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `category`
 --
@@ -370,22 +364,17 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `category_song`
 --
 ALTER TABLE `category_song`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `playlist`
 --
 ALTER TABLE `playlist`
-  MODIFY `playlist_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `playlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `playlist_songs`
 --
 ALTER TABLE `playlist_songs`
-  MODIFY `ps_id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `role`
---
-ALTER TABLE `role`
-  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ps_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `songs`
 --
@@ -395,7 +384,7 @@ ALTER TABLE `songs`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
